@@ -15,6 +15,8 @@ void GenMatrix()
 }
 void SearchAndCheck()
 {
+    // foreach (int[] item in matrix) if (item.Contains(17)) rslt = "Есть";
+    // if (matrix.GetLength(0) < first || matrix.GetLength(1) < secnd) rslt2 = "Есть";
     for (int row = 0; row < n; row++)
         for (int col = 0; col < m; col++)
             if (matrix[row, col] == val) rslt = $"Число {val} в матрице.";
