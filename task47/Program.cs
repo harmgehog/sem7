@@ -1,7 +1,7 @@
 ﻿// Задача 47. Заполните двумерный массив m×n, случайными вещественными числами.
 
 int n, m, x; double[,] matrix;
-x = 20;
+x = 10;
 while (x > 0)
 {
 Console.Clear();
@@ -22,7 +22,7 @@ void ShowMatrix(double[,] mtx)
         for (int col = 0; col < mtx.GetLength(1); col++)
         {
             Console.ForegroundColor = (ConsoleColor)new Random().Next(1, 16);
-            Console.Write(" {0,7}", Math.Round(mtx[row, col], 2));
+            Console.Write("{0,6:0.00}", mtx[row, col]);
         }
         Console.WriteLine();
     }
