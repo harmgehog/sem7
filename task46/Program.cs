@@ -2,10 +2,22 @@
 
 int GetNum(string text)
 {
-    Console.Write(text);
-    return int.Parse(Console.ReadLine()!);
+    do
+    {
+        try
+        {
+            Console.WriteLine(text);
+            int num = Convert.ToInt32(Console.ReadLine());
+            return num;
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Неверный ввод(только цифры)!");
+        }
+    }
+    while (true);
 }
-int[,] GenMatrix(int rows, int cols, int low, int up)
+int[,] GenerateMatrix(int rows, int cols, int low, int up)
 {
     int[,] mtx = new int[rows, cols];
     for (int row = 0; row < rows; row++)
@@ -23,12 +35,12 @@ void ShowMatrix(int[,] mtx)
     {
         for (int col = 0; col < mtx.GetLength(1); col++)
         {
-            Console.Write(" {0,3}", mtx[row, col]);
+            Console.Write(" {0,4}", mtx[row, col]);
         }
         Console.WriteLine();
     }
 }
-int m = GetNum("Input n(m) rows: ");
-int n = GetNum("Input m(n) cols: ");
-int[,] matrix = GenMatrix(m, n, -100, 100);
+int n = GetNum("Введите кол-во строк: ");
+int m = GetNum("Введите кол-во столбцов: ");
+int[,] matrix = GenerateMatrix(n, m, -100, 100);
 ShowMatrix(matrix);
